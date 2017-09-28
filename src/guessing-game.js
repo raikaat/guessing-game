@@ -13,11 +13,11 @@ class GuessingGame {
 	this.max = max;
     if (this.arr[0] === undefined) {
     this.length = max-min;
-    for (var i = 0; i <this.max+this.min; i++) {
-    this.arr[i]=min+i;
+    for (var i = 0; i <this.max+this.min-1; i++) {
+    this.arr[i]=1+i;
     }
 	}
-	this.middle = Math.floor((this.min+this.max)/2);
+	this.middle = Math.ceil((this.min+this.max)/2);
     }
 
     guess() {
