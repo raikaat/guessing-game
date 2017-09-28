@@ -7,8 +7,10 @@ class GuessingGame {
         this.middle = null;
     
     }
-
+	
     setRange(min, max) {
+	this.min = min;
+	this.max = max;
     this.length = max-min;
     for (var i = 0; i <=this.length; i++) {
     this.arr[i]=min+i;
@@ -20,11 +22,13 @@ class GuessingGame {
     return this.arr[this.middle];
     }
 
-    lower() {
+    greater() {
+	this.min=this.middle+1;
     return this.middle = Math.floor((this.middle+1+this.max)/2);  
     }
 
-    greater() {
+    lower() {
+	this.max = this.middle-1;
     return this.middle = Math.floor((this.min+this.middle-1)/2);
     }
 }
