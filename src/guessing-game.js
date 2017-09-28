@@ -11,11 +11,13 @@ class GuessingGame {
     setRange(min, max) {
 	this.min = min;
 	this.max = max;
+    if (this.arr[0] === undefined) {
     this.length = max-min;
-    for (var i = 0; i <=this.length; i++) {
+    for (var i = 0; i <this.max+this.min; i++) {
     this.arr[i]=min+i;
     }
-	this.middle = Math.floor(this.arr.length/2);
+	}
+	this.middle = Math.floor((this.min+this.max)/2);
     }
 
     guess() {
@@ -23,13 +25,11 @@ class GuessingGame {
     }
 
     greater() {
-	this.min=this.middle+1;
-    return this.middle = Math.floor((this.middle+1+this.max)/2);  
+    return this.setRange(this.middle+1, this.max);  
     }
 
     lower() {
-	this.max = this.middle-1;
-    return this.middle = Math.floor((this.min+this.middle-1)/2);
+    return this.setRange(this.min, this.middle-1);
     }
 }
 
